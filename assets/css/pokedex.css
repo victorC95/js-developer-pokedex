@@ -4,6 +4,9 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    flex: 1;
+    margin-right: 20px;
+    text-transform: capitalize;
 }
 
 .normal {
@@ -87,8 +90,8 @@
 }
 
 .pokemon .number {
-    color: #000;
-    opacity: .3;
+    color: #000000;
+    opacity: .7;
     text-align: right;
     font-size: .625rem;
 }
@@ -137,18 +140,213 @@
 }
 
 .pagination button {
-    padding: .25rem .5rem;
-    margin: .25rem 0;
-    font-size: .625rem;
+    padding: .25rem 2rem;
+    margin: .25rem 1.55rem 0 0;
+    font-size: .725rem;
     color: #fff;
     background-color: #6c79db;
     border: none;
     border-radius: 1rem;
+    cursor: pointer;
+    
 }
+
+/* CSS para estabelecer o layout flexível */
+.pokedex-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    border-radius: 1rem;
+    margin-right: 350px;
+    width: 100%;
+  }
+
+#selectedPokemonDetails{
+    text-transform: capitalize;
+    width: 100%;
+    border-image-width: 20%;
+    
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.selected-pokemon {
+    display: none;
+    position: fixed;
+    top: 125px;
+    right: 20px;
+    left: auto;
+    bottom: 0;
+    border: none;
+    border-radius: 15px;
+    background-color: white;
+    box-sizing: border-box;
+    overflow-y: auto;
+    /* Remove a borda inferior */
+    border-bottom: none;
+    width: 350px;
+    background: rgb(2,0,36);
+    background: rgb(192, 192, 192);
+}
+
+#selectedPokemonDetails .selected-pokemon-image {
+    max-width: 100%; /* Imagem se ajusta ao contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    display: flex; /* Torna o container um flex container */
+    flex-direction: column; /* Define a direção da coluna para alinhar verticalmente */
+    align-items: flex-start; /* Alinha a imagem ao topo */
+    padding: 0 7rem;
+    margin-top: 25px;
+}
+
+/* Css das Informações dos Pokemons */
+
+.pokemon-number {
+    text-align: center;
+    font-size: 10px;
+    color: #3d3d3d;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.ability {
+    width: 100%;
+    background-color: rgb(219, 219, 219);
+    padding: 8px 0;
+    border-radius: 30px;
+    margin: 5px;
+    text-align: center;
+}
+
+.heightWeight{
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 30px;
+    margin: 5px;
+    background-color: rgb(219, 219, 219);
+    text-align: center;
+}
+
+.margin-5 {
+    margin: 5px;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.type {
+    border-radius: 1rem;
+}
+
+.typeHeight{
+    width: 100%;
+}
+
+.types-container {
+    padding: 3px 5px;
+    color: black;
+    margin: 5px;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    opacity: 0.8;
+    width: 30%;
+    text-align: center;
+}
+
+.centered-text {
+    text-align: center;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    height: 90%;
+    padding: 5em;
+    overflow: hidden; /* Evita a exibição da barra de rolagem */
+    background-image: url(/assets/src/PokeBall.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    margin-top: -50px;
+    margin-left: 5px;
+    margin-right: auto;
+
+    
+}
+
+.centered-width {
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* CSS para estilizar conteúdo do conteiner de pokemons selecionados */
+
+h3 {
+    margin: 5px;
+    text-align: center;
+}
+
+.pokemons li:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.semOrdenação {
+    list-style-type: none;
+    margin-left: -1em;
+}
+
+/* Estilo para alinhar ícones e nomes de estatísticas */
+.stat-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stat-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-left: 25px;
+}
+
+.stat-icon-container {
+    margin-right: 10px; /* Ajuste a margem conforme necessário */
+}
+
+.stat-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.stat-name {
+    font-weight: bold;
+}
+
 
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;
+        padding: 0;
     }
 }
 
@@ -158,8 +356,39 @@
     }
 }
 
-@media screen and (min-width: 992px) {
+/* Estilo para telas com largura maior ou igual a 1100px */
+@media screen and (min-width: 1100px) {
+    .selected-pokemon {
+      display: flex;
+    }
+
+    .pokedex-container {
+        /* Define uma largura específica para a lista de Pokémon em telas maiores */
+        width: 65vw; 
+        padding: 0 .5em;
+        
+      }
+  }
+
+@media screen and (min-width: 1440px) {
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+    .pokedex-container {
+        width: 75%;
+    }
 }
+
+@media screen and (min-width: 1920px) {
+    .pokedex-container {
+        width: 63%;
+        margin-left: 9vw;
+    }
+    .pokemon {
+        width: 270px;
+    }
+    .selected-pokemon{
+        margin-right: 7vw;
+    }
+}
+

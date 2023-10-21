@@ -5,20 +5,26 @@
 
 body {
     background-color: #f6f8fc;
+    background-image: url(/assets/src/pokeball-icon.png);
+    background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
 .content {
     width: 100vw;
     height: 100vh;
     padding: 1rem;
-    background-color: #fff;
+    display: block;
+    background-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(186,186,186,1) 0%, rgba(146,172,186,1) 50%, rgba(177,177,177,1) 100%);
+    
 }
 
-@media screen and (min-width: 992px) {
-    .content {
-        max-width: 992px;
-        height: auto;
-        margin: 1rem auto;
-        border-radius: 1rem;
-    }
+h1{
+    font-size: 2em;
+    position: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
 }
